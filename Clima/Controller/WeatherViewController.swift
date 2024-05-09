@@ -16,10 +16,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
-    
-    
-    
-        
+       
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     
@@ -43,12 +40,6 @@ class WeatherViewController: UIViewController {
         locationManager.requestLocation()
     }
 }
-
-
-
-
-
-
 
 //MARK: - UITextFieldDelegate
 
@@ -110,7 +101,9 @@ extension WeatherViewController: WeatherManagerDelegate{
         print(error)
     }
 }
-//MARK - CLLocationManagerDelegate
+
+
+//MARK: - CLLocationManagerDelegate
 
 extension WeatherViewController: CLLocationManagerDelegate{
     
@@ -123,12 +116,7 @@ extension WeatherViewController: CLLocationManagerDelegate{
             let lon = location.coordinate.longitude
             weatherManager.fetchWeather(latitude: lat, longitude: lon)
         }
-        
-        
-        
     }
-    
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         print(error)
     }
